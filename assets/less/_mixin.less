@@ -1,0 +1,85 @@
+/*
+LESS Mixins
+*/
+/* CSS3 properties */
+
+.box-shadow (@x: 0, @y: 0, @blur: 5px, @color: rgba(0,0,0,.20)) {
+  -moz-box-shadow: @x @y @blur @color;
+  -webkit-box-shadow: @x @y @blur @color;
+  box-shadow: @x @y @blur @color;
+}
+
+.box-shadow-inset (@x: 0, @y: 0, @blur: 3px, @color: rgba(0,0,0,.20)) {
+  -moz-box-shadow: inset @x @y @blur @color;
+  -webkit-box-shadow: inset @x @y @blur @color;
+  box-shadow: inset @x @y @blur @color;
+}
+
+.text-shadow (@x: 0, @y: 0, @blur: 3px, @color: rgba(0,0,0,.20)) {
+  -moz-text-shadow: @x @y @blur @color;
+  -webkit-text-shadow: @x @y @blur @color;
+  text-shadow: @x @y @blur @color;
+}
+
+.radius(@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+  -moz-background-clip: padding-box; -webkit-background-clip: padding-box; background-clip: padding-box;
+}
+
+.gradient(@color: #F5F5F5, @start: #FFFFFF, @stop: #EEEEEE) {
+  background: @color;
+  background: -webkit-gradient(linear, left top, left bottom, from(@start), to(@stop));
+  background: -ms-linear-gradient(top, @start, @stop);
+  background: -moz-linear-gradient(top, @start 0%, @stop 100%);
+}
+
+.gradient_cs(@color: #F5F5F5, @start: #FFFFFF, @stop: #EEEEEE, @place:50%,@top:top){
+  background: @color;
+  background: -webkit-gradient(linear, left @top, left bottom, color-stop(@place,@start), color-stop(100%,@stop));
+  background: -webkit-linear-gradient(@top,  @start @place,@stop 100%);
+  background: -o-linear-gradient(@top,  @start @place,@stop 100%);
+  background: -moz-linear-gradient(@top,  @start @place, @stop 100%);
+  background: -ms-linear-gradient(@top,  @start @place,@stop 100%);
+}
+
+.opacity(@opacity: 0.25) {
+  -moz-opacity: @opacity;
+  -khtml-opacity: @opacity;
+  -webkit-opacity: @opacity;
+  opacity: @opacity;
+}
+
+.transition(@duration:0.2s, @ease:ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+
+.transition-duration(@duration: 0.2s) {
+  -moz-transition-duration: @duration;
+  -webkit-transition-duration: @duration;
+  transition-duration: @duration;
+}
+
+.rotation(@deg:5deg){
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+
+.scale(@ratio:1.5){
+  -webkit-transform:scale(@ratio);
+  -moz-transform:scale(@ratio);
+  transform:scale(@ratio);
+}
+
+.translate(@x:0, @y:0) {
+  -moz-transform: translate(@x, @y);
+  -webkit-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+}
+
