@@ -1,15 +1,96 @@
 @charset "utf-8";
-// LESS related
+// SASS related
 @import "../../assets/vendor/bourbon/_bourbon";
 @import "../../assets/vendor/neat/_neat";
-@import "../../assets/vendor/hover/hover";
+//@import "../../assets/vendor/hover/hover";
 @import "../../assets/vendor/material-color/_palette";
-@import "../../assets/sass/_variable";
-@import "scss/_variable.scss";
+//@import "../../assets/sass/_variable";
+//@import "scss/_variable.scss";
 
 
 
 
+//@import "../../assets/sass/_responsive_module.scss";
+//@import "scss/_module.scss";
 
-@import "../../assets/sass/_responsive_module.scss";
-@import "scss/_module.scss";
+
+/*
+# Bourbonの説明
+ 
+ここにコメントとか説明入れたりすると便利らしい！
+ 
+`.inner_text`で文字を白くする
+ 
+```
+<div class="test">
+  <div class="wrapper">
+      <div class="left">左のコンテンツ</div>
+      <div class="right">右のコンテンツ</div>
+  </div>
+  <div class="wrapper">
+      <div class="box">箱のコンテンツ１</div>
+      <div class="box">箱のコンテンツ２</div>
+      <div class="box">箱のコンテンツ３</div>
+      <div class="box">箱のコンテンツ４</div>
+      <div class="box">箱のコンテンツ5</div>
+      <div class="box">箱のコンテンツ6</div>
+      <div class="box">箱のコンテンツ7</div>
+      <div class="box">箱のコンテンツ8</div>
+  </div>
+</div>
+```
+
+サブの内容を入れる
+```
+<div class="test">
+  <div class="wrapper">
+          <div class="none">
+              <div class="boxs">箱のコンテンツ１</div>
+              <div class="boxs">箱のコンテンツ２</div>
+              <div class="boxs">箱のコンテンツ３</div>
+          </div>
+      </div>
+  </div>
+</div>
+```
+*/
+
+
+
+.test{  
+    @include padding(10px null);
+}
+
+.wrapper{
+    @include outer-container;
+    .left{
+        @include span-columns(6);
+        @include pad();
+        text-align: center;
+        background: palette(Red);
+    }
+    .right{
+        @include span-columns(6);
+        @include pad();
+        text-align: center;
+        background: palette(Blue);
+    }
+    .box{
+        @include span-columns(3);
+        @include omega(4n);
+        @include pad(10px default 20px);
+        background: palette(Grey);
+        margin-bottom: 20px;
+
+    }
+    .none{
+        @include row(table);
+    }
+    .boxs{
+        @include span-columns(4);
+        background: palette(Brown);
+        @include reset-display;
+        @include pad();
+    }
+
+}

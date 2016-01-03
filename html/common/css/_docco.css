@@ -1,0 +1,37 @@
+/*
+# ここにタイトルが入る
+ 
+ここにコメントとか説明入れたりすると便利！
+`.hogehoge`でcodeを囲える。
+```
+<div class="test">
+  <div class="wrapper">
+      <div class="left">左のコンテンツ</div>
+      <div class="right">右のコンテンツ</div>
+  </div>
+  <div class="wrapper">
+      <div class="box">箱のコンテンツ１</div>
+      <div class="box">箱のコンテンツ２</div>
+      <div class="box">箱のコンテンツ３</div>
+      <div class="box">箱のコンテンツ４</div>
+      <div class="box">箱のコンテンツ5</div>
+      <div class="box">箱のコンテンツ6</div>
+      <div class="box">箱のコンテンツ7</div>
+      <div class="box">箱のコンテンツ8</div>
+  </div>
+</div>
+```
+サブの内容を入れる
+```
+<div class="test">
+  <div class="wrapper">
+          <div class="none">
+              <div class="boxs">箱のコンテンツ１</div>
+              <div class="boxs">箱のコンテンツ２</div>
+              <div class="boxs">箱のコンテンツ３</div>
+          </div>
+      </div>
+  </div>
+</div>
+```
+*/
