@@ -5,11 +5,12 @@
 @import "../../assets/vendor/hover/hover";
 @import "../../assets/vendor/material-color/_palette";
 @import "../../assets/sass/_variable";
-@import "scss/_variable.scss";
+@import "../../assets/sass/_mixin";
+@import "scss/_variable";
 
 
 
 
 
-@import "../../assets/sass/_responsive_module.scss";
-@import "scss/_module.scss";
+@import "../../assets/sass/_responsive_module";
+@import "scss/_module";

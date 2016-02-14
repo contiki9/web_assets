@@ -30,55 +30,6 @@
 }
 
 
-//Display: Box;
-//////////////////////////////////////////////////
-.d-box{
-  display: box;
-  display: -webkit-box;
-  display: -moz-box;
-}
-.d-box-left{
-  box-pack:start;
-  -webkit-box-pack:start;
-  -moz-box-pack:start;
-}
-.d-box-right{
-  box-pack:end;
-  -webkit-box-pack:end;
-  -moz-box-pack:end;
-}
-.d-box-center{
-  box-pack:center;
-  -webkit-box-pack:center;
-  -moz-box-pack:center;
-}
-.d-box-fix{
-  box-pack:justify;
-  -webkit-box-pack:justify;
-  -moz-box-pack:justify;
-}
-.d-box-top{
-  box-align:start;
-  -webkit-box-align:start;
-  -moz-box-align:start;
-}
-.d-box-bottom{
-  box-align:end;
-  -webkit-box-align:end;
-  -moz-box-align:end;
-}
-.d-box-middle{
-  box-align:center;
-  -webkit-box-align:center;
-  -moz-box-align:center;
-}
-.d-box-flex{
-  box-flex:1;
-  -webkit-box-flex:1;
-  -moz-box-flex:1;
-}
-
-
 //////////////////////////////////////////////////
 //RESET
 //////////////////////////////////////////////////
@@ -161,6 +112,10 @@ $space :15px;
 
 .fl-left{float: left;}
 .fl-right{float: right;}
+.fl-list{
+    overflow: hidden;
+    li{float: left;}
+}
 
 .pointer{cursor:pointer;}
 .inedent{text-indent: -1em; padding-left: 1em;}
@@ -232,24 +187,21 @@ $space :15px;
 //Color
 ///////////////////////////////////////
 
-//文字色
+//text Color
 ////////////////////////////////////
-.text-main,
-.text-main a{//メインカラー用
+.text-main,.text-main a{
              color: $main;
              &:hover{
                color: $main;
              }
 }
-.text-accent,
-.text-accent a{//アクセントカラー用
+.text-accent,.text-accent a{
                color: $accent;
                &:hover{
                  color: $accent;
                }
 }
-.text-notice,
-.text-notice a{//注意用
+.text-notice,.text-notice a{
                color: $red;
                &:hover{
                  color: $red;
@@ -333,9 +285,8 @@ $space :15px;
 
 //背景色
 ////////////////////////////////////
-.bg-color{
+.bg-link{
   background: $link;
-  @extend .text-white;
 }
 .bg-main{
   background: $main;
@@ -343,7 +294,6 @@ $space :15px;
 .bg-accent{
   background: $accent;
 }
-
 .bg-black{
   background: $white;
  @extend .text-white;
