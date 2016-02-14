@@ -1,20 +1,8 @@
-@charset "utf-8";
-// SASS related
-@import "../../assets/vendor/bourbon/_bourbon";
-@import "../../assets/vendor/neat/_neat";
-//@import "../../assets/vendor/hover/hover";
-@import "../../assets/vendor/material-color/_palette";
-@import "scss/_variable.scss";
-
-
-
 /*
-# Bourbonの説明
+# ここにタイトルが入る
  
-ここにコメントとか説明入れたりすると便利らしい！
- 
-`.inner_text`で文字を白くする
- 
+ここにコメントとか説明入れたりすると便利！
+`.hogehoge`でcodeを囲える。
 ```
 <div class="test">
   <div class="wrapper">
@@ -33,7 +21,6 @@
   </div>
 </div>
 ```
-
 サブの内容を入れる
 ```
 <div class="test">

@@ -1,0 +1,24 @@
+//- グローバルナビ
+mixin gnav(path,current)
+  nav
+    ul
+      if current = 'gnav1'
+        li(class='active') ナビゲーション
+      else
+        li: a(href='#{path}gnav1/') ナビゲーション
+        
+      if current === 'gnav2'
+        li(class='active') ナビゲーション
+      else
+        li: a(href='#{path}gnav2/') ナビゲーション
+
+
+mixin header(path)
+  header.header
+    h1.logo ここにタイトルが入ります。
+    +gnav(path)
+
+mixin footer(path)
+  footer.footor
+    p.copy Copyright &copy 2016 . All rights reserved.
+
