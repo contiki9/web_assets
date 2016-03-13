@@ -17,7 +17,24 @@
 
 /* Base //body { … }
    ----------------------------------------------------------------- */
+html,body{
+    @include cnt-font-size(16);
+    ont-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+h1, h2, h3, h4, h5, h6{ont-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
 
+p{line-height: 1.6;}
+
+a{
+    color: $text;
+    &:hover{
+	color: $text;
+    }
+}
 
 
 /* ==========================================================================
