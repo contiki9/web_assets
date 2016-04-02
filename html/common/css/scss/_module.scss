@@ -309,3 +309,20 @@ $space :15px;
   background: $grayLight;
 }
 
+////////////////////////////////////////
+//アニメーション
+///////////////////////////////////////
+.cnt-anm-blinking{
+	//点滅
+	@include cnt-anm-blinking;
+}
+
+.cnt-anm-horizontal{
+	//縦揺れ
+	@include cnt-anm-horizontal;
+}
+
+.cnt-anm-vertical {
+	//横揺れ
+	@include cnt-anm-vertical;
+}

@@ -50,7 +50,7 @@ a{
 		color: $text;
 		text-decoration: none;
 	}
-    
+    }
 }
 
 

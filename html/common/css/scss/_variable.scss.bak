@@ -4,7 +4,6 @@ SASS Variables
 
 /* Background colors */
 
-$brk:480px;
 $brk-sp:480px;
 $brk-tbl:768px;
 
