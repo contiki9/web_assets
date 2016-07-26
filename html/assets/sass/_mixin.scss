@@ -166,10 +166,23 @@ SASS mixin
 	@include margin(null auto);
 }
 
+
+//translate
+///////////////////////////////////////////////
+@mixin cnt-rotation($r:-4.5deg){
+	-webkit-transform: skewY($r) translate3d(0px, 0px, 0px);
+	transform: skewY($r) translate3d(0px, 0px, 0px);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
 //animation
 ///////////////////////////////////////////////
 @mixin cnt-anm-blinking($speed:1.5s,$keyframes:cnt-blink){
-	//“_–Å
+	//ï¿½_ï¿½ï¿½
 	-webkit-animation:$keyframes $speed ease-in-out infinite alternate;
 	-moz-animation:$keyframes $speed ease-in-out infinite alternate;
 	animation:$keyframes $speed ease-in-out infinite alternate;
@@ -188,7 +201,7 @@ SASS mixin
 }
 
 @mixin cnt-anm-horizontal($speed:1s,$keyframes:cnt-horizontal) {
-	//c—h‚ê
+	//ï¿½cï¿½hï¿½ï¿½
 	animation: $keyframes $speed ease-in-out infinite alternate;
 }
 @-webkit-keyframes cnt-horizontal{
@@ -205,7 +218,7 @@ SASS mixin
 }
 
 @mixin cnt-anm-vertical($speed:1s,$keyframes:cnt-vertical) {
-	//‰¡—h‚ê
+	//ï¿½ï¿½ï¿½hï¿½ï¿½
 	animation: cnt-vertical $speed ease-in-out infinite alternate;
 }
 @-webkit-keyframes cnt-vertical{
