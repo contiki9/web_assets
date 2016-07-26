@@ -1,19 +1,117 @@
-$(document).ready(function(){
-    // Add target="_blank" when user opens external link
-    $('a').each(function() {
-      var a = this;
-      if (a.js-origin !== location.origin) {
-//ƒuƒ‰ƒEƒUƒTƒCƒY•Ê‚ÌJSƒtƒ@ƒCƒ‹“Ç‚İ‚İŠÇ—
+
+function js_window_maxHeight() {
+	$(window).on('load scroll resize', function () {
+		var h = window.innerHeight ? window.innerHeight : $(window).height();
+		$('.js-window-maxHeight').css('height', h);
+	});
+}
+
+
+function js_currentUrl() {
+	$(function () {
+		var activeUrl = location.pathname.split("/")[2];
+		navList = $(".js-currentUrl").find("a");
+		navList.each(function () {
+			if ($(this).attr("href").split("/")[2] == activeUrl) {
+				$(this).addClass("active");
+			}
+			;
+		});
+	});
+}
+
+var deviceFlug_ua = (function () {
+	//ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚’ãƒ•ãƒ©ã‚°ã«ã™ã‚‹å ´åˆ
+//////////////////////////////////////
+	var ua = navigator.userAgent;
+	if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+		return 'sp';
+	} else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+		return 'tab';
+	} else {
+		return 'pc';
+	}
+})();
+
+var deviceFlug_win = (function () {
+//windowã‚µã‚¤ã‚ºã‚’ãƒ•ãƒ©ã‚°ã«ã™ã‚‹å ´åˆ
+//////////////////////////////////////
+	var wid = $(window).width();
+	if (wid <= 480) {
+		return 'sp';
+	} else if (wid <= 768) {
+		return 'tab';
+	} else {
+		return 'pc';
+	}
+})();
+
+
+$(document).ready(function () {
+//ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆè‡ªèº«ã‚’å‰Šé™¤
+	$('.js-click-remove').click(function () {
+		$(this).remove();
+	});
+	$('.js-click-switch-remove').click(function () {
+		link = $(this).attr('href');
+		$(link).fadeIn();
+		$(this).remove();
+		return false;
+	});
+});
+
+
+$(document).ready(function () {
+////////////////////////////////////////////////////////////////
+////ã‚¹ãƒãƒ›ç”¨ã¨PCç”¨ã§ç”»åƒã‚’åˆ‡ã‚Šå¤‰ãˆã‚‹&RETINAå¯¾å¿œ
+////////////////////////////////////////////////////////////////
+	if (deviceFlug_win == 'sp') {
+//_pcã®ç”»åƒã‚’_spã«å¤‰ãˆã‚‹å‡¦ç†
+		$('.js-device-img-change').each(function () {
+			$(this).attr("src", $(this).attr("src").replace('_pc', '_sp'));
+		});
+		//ã‚¹ãƒãƒ›æ™‚ã«ç”»åƒã‚’åŠåˆ†ã«ã—ã¦è¡¨ç¤ºã™ã‚‹ï¼ˆretinaå¯¾å¿œï¼‰
+		$('.js-device-img-retina').each(function () {
+			var imageObj = new Image();
+			// ç”»åƒã®ãƒ—ãƒªãƒ­ãƒ¼ãƒ‰å‡¦ç†
+			imageObj.src = $(this).attr('src');
+			$(this).on('load', function () {
+				width = imageObj.width;
+				$(this).attr("width", width / 2);
+			});
+		});
+	}
+
+////////////////////////////////////////////////////////////////
+//ã‚¹ãƒãƒ›æ™‚ã«ç”»åƒã‚’altã®ãƒ†ã‚­ã‚¹ãƒˆã«å·®ã—æ›¿ãˆã‚‹
+////////////////////////////////////////////////////////////////
+	if (deviceFlug_win == 'sp') {
+		$(".js-device-text-change").each(function (i) {
+			var txt = $("img", this).attr("alt");
+			$(this).attr("data-label", txt);
+		});
+	}
+////////////////////////////////////////////////////////////////
+//PCæ™‚ã«é›»è©±ç•ªå·ã®ãƒªãƒ³ã‚¯ã‚’å¤–ã™ã€‚
+////////////////////////////////////////////////////////////////
+	if (deviceFlug_win == 'pc') {
+		$('.js-tel-href').each(function () {
+			$(this).contents().unwrap();
+		});
+	}
+});
+
+//ãƒ–ãƒ©ã‚¦ã‚¶ã‚µã‚¤ã‚ºåˆ¥ã®JSãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ç®¡ç†
 ////////////////////////////////////////////////
 //jQuery(document).ready(function($) {
-//	//PCŠÂ‹«‚Ìê‡
-//	if (window.matchMedia( '(min-width: 769px)' ).matches) {@//Ø‚è‘Ö‚¦‚é‰æ–ÊƒTƒCƒY
+//	//PCç’°å¢ƒã®å ´åˆ
+//	if (window.matchMedia( '(min-width: 769px)' ).matches) {ã€€//åˆ‡ã‚Šæ›¿ãˆã‚‹ç”»é¢ã‚µã‚¤ã‚º
 //		$.ajax({
 //			url: 'js/pc.js',
 //			dataType: 'script',
 //			cache: false
 //	   });
-//	//ƒ‚ƒoƒCƒ‹ŠÂ‹«‚Ìê‡
+//	//ãƒ¢ãƒã‚¤ãƒ«ç’°å¢ƒã®å ´åˆ
 //	} else {
 //	    $.ajax({
 //			url: 'js/sp.js',
@@ -24,14 +122,14 @@ $(document).ready(function(){
 //});
 
 
-//ƒuƒ‰ƒEƒUƒTƒCƒY•Ê‚ÌJSƒtƒ@ƒCƒ‹“Ç‚İ‚İŠÇ—
+//ãƒ–ãƒ©ã‚¦ã‚¶ã‚µã‚¤ã‚ºåˆ¥ã®JSãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ç®¡ç†
 ////////////////////////////////////////////////
-//$(function () {
-//	$(window).bind("load resize", init);//ƒEƒBƒ“ƒhƒE‚ªw“Ç‚İx‚à‚µ‚­‚ÍwƒEƒBƒ“ƒhƒEƒTƒCƒY•ÏXx‚³‚ê‚½AŠÖ”winitx‚ğÀs
-//	function init() {//‰º‹L‚Ìˆ—‚ğŠÖ”winitx‚Æ‚µ‚Ä’è‹`‚·‚é
-//		var _width = $(window).width();//ƒfƒoƒCƒXiƒEƒBƒ“ƒhƒEj•‚ğæ“¾
+//$(document).ready(function () {
+//	$(window).bind("load resize", init);//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒã€èª­è¾¼ã¿ã€ã‚‚ã—ãã¯ã€ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºå¤‰æ›´ã€ã•ã‚ŒãŸæ™‚ã€é–¢æ•°ã€initã€ã‚’å®Ÿè¡Œ
+//	function init() {//ä¸‹è¨˜ã®å‡¦ç†ã‚’é–¢æ•°ã€initã€ã¨ã—ã¦å®šç¾©ã™ã‚‹
+//		var _width = $(window).width();//ãƒ‡ãƒã‚¤ã‚¹ï¼ˆã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ï¼‰å¹…ã‚’å–å¾—
 //		if (_width <= 480) {
-//			//ƒfƒoƒCƒXiƒEƒBƒ“ƒhƒEj•‚ª480pxˆÈ‰º‚Ì‚Ìˆ—
+//			//ãƒ‡ãƒã‚¤ã‚¹ï¼ˆã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ï¼‰å¹…ãŒ480pxä»¥ä¸‹ã®æ™‚ã®å‡¦ç†
 //
 //		} else {
 //

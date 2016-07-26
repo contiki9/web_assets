@@ -1,4 +1,11 @@
-@charset "UTF-8";
+/* ==========================================================================
+   Foundation
+   ========================================================================== */
+/*---------------------------------------------------------------------
+# assets
+-----------------------------------------------------------------------*/
+/* mixIn
+   ---------------------------------------------------------- */
 html {
   box-sizing: border-box;
 }
@@ -9,14 +16,6 @@ html {
   box-sizing: inherit;
 }
 
-/**
- * google-material-color v1.2.6
- * https://github.com/danlevan/google-material-color
- */
-/*
-SASS Variables
-*/
-/* Background colors */
 /*
 SASS mixin
 */
@@ -82,6 +81,652 @@ SASS mixin
   }
 }
 
+/* Base
+   ---------------------------------------------------------- */
+/*
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 12/9/2014
+* Sass Version by Seth Coelen https://github.com/whatsnewsaes
+*/
+/* Base files. */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+a {
+  background-color: transparent;
+}
+
+a:active {
+  outline: 0;
+}
+
+a:hover {
+  outline: 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+pre {
+  overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"], input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/*
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 12/9/2014
+* Sass Version by Seth Coelen https://github.com/whatsnewsaes
+*/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.5em;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+a {
+  color: #1eaedb;
+}
+
+a:hover {
+  color: #1b9cc5;
+}
+
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid #e1e1e1;
+}
+
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.u-pull-right {
+  float: right;
+}
+
+.u-pull-left {
+  float: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 4.0rem;
+  line-height: 1.2;
+  letter-spacing: -.1rem;
+}
+
+h2 {
+  font-size: 3.6rem;
+  line-height: 1.25;
+  letter-spacing: -.1rem;
+}
+
+h3 {
+  font-size: 3.0rem;
+  line-height: 1.3;
+  letter-spacing: -.1rem;
+}
+
+h4 {
+  font-size: 2.4rem;
+  line-height: 1.35;
+  letter-spacing: -.08rem;
+}
+
+h5 {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  letter-spacing: -.05rem;
+}
+
+h6 {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+@media (min-width: 550px) {
+  h1 {
+    font-size: 5.0rem;
+  }
+  h2 {
+    font-size: 4.2rem;
+  }
+  h3 {
+    font-size: 3.6rem;
+  }
+  h4 {
+    font-size: 3.0rem;
+  }
+  h5 {
+    font-size: 2.4rem;
+  }
+  h6 {
+    font-size: 1.5rem;
+  }
+}
+
+p {
+  margin-top: 0;
+}
+
+/* Modules */
+.button,
+button {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button:hover,
+button:hover {
+  color: #333;
+  border-color: #888888;
+  outline: 0;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  color: #333;
+  border-color: #888888;
+  outline: 0;
+}
+
+.button:focus,
+button:focus {
+  color: #333;
+  border-color: #888888;
+  outline: 0;
+}
+
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: #333;
+  border-color: #888888;
+  outline: 0;
+}
+
+.button.button-primary,
+button.button-primary {
+  color: #fff;
+  background-color: #33c3f0;
+  border-color: #33c3f0;
+}
+
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #fff;
+  background-color: #33c3f0;
+  border-color: #33c3f0;
+}
+
+.button.button-primary:hover,
+button.button-primary:hover {
+  color: #fff;
+  background-color: #1eaedb;
+  border-color: #1eaedb;
+}
+
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover {
+  color: #fff;
+  background-color: #1eaedb;
+  border-color: #1eaedb;
+}
+
+.button.button-primary:focus,
+button.button-primary:focus {
+  color: #fff;
+  background-color: #1eaedb;
+  border-color: #1eaedb;
+}
+
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #fff;
+  background-color: #1eaedb;
+  border-color: #1eaedb;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"] {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus {
+  border: 1px solid #33c3f0;
+  outline: 0;
+}
+
+textarea:focus,
+select:focus {
+  border: 1px solid #33c3f0;
+  outline: 0;
+}
+
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600;
+}
+
+fieldset {
+  padding: 0;
+  border-width: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+}
+
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal;
+}
+
+ul {
+  list-style: circle inside;
+}
+
+ol {
+  list-style: decimal inside;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+ul {
+  padding-left: 0;
+  margin-top: 0;
+}
+
+ul ul, ul ol {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%;
+}
+
+ol ol, ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+code {
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  background: #f1f1f1;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+}
+
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+
+th:last-child,
+td:last-child {
+  padding-right: 0;
+}
+
+button,
+.button {
+  margin-bottom: 1rem;
+}
+
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem;
+}
+
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+  margin-bottom: 2.5rem;
+}
+
 /*
 SASS Variables
 */
@@ -89,351 +734,245 @@ SASS Variables
 /* ==========================================================================
    Foundation
    ========================================================================== */
-/* Reset //html, body, div, … { … }
-   ----------------------------------------------------------------- */
-/* Base //body { … }
-   ----------------------------------------------------------------- */
-html, body {
+@font-face {
+  font-family: 'Noto Sans Japanese';
+  font-style: normal;
+  font-weight: 400;
+  src: url("assets/font/NotoSansCJKjp-Regular.eot");
+  src: url("assets/font/NotoSansCJKjp-Regular.eot?#iefix") format("embedded-opentype"), url("assets/font/NotoSansCJKjp-Regular.woff") format("woff"), url("assets/font/NotoSansCJKjp-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Noto Sans Japanese';
+  font-style: normal;
+  font-weight: 700;
+  src: url("assets/font/NotoSansCJKjp-Bold.eot");
+  src: url("assets/font/NotoSansCJKjp-Bold.eot?#iefix") format("embedded-opentype"), url("assets/font/NotoSansCJKjp-Bold.woff") format("woff"), url("assets/font/NotoSansCJKjp-Bold.ttf") format("truetype");
+}
+
+body, html {
   color: #3F3F3F;
-  font-size: 16px;
-  font-size: 1rem;
-  font-family: "HG明朝B", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
-  letter-spacing: 0.1rem;
+  font-family: "Noto Sans", "Noto Sans CJK JP","Noto Sans Japanese", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
-  line-height: 1.5;
-  font-size: 16px;
-  font-size: 1rem;
-  font-family: "HG明朝B", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
-  font-size: 16px;
-  font-size: 1rem;
-  ont-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-family: "Noto Sans", "Noto Sans CJK JP","Noto Sans Japanese", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  ont-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-}
-
-ul {
+ul, li, dl, dd, dt {
   list-style: none;
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
   padding-left: 0;
 }
 
-p {
-  line-height: 1.6;
-}
-
-a {
-  color: #3F3F3F;
-}
-
-a:hover {
-  color: #3F3F3F;
-  text-decoration: none;
+figure {
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 /* ==========================================================================
    Layout
    ========================================================================== */
-/* Header //#header { … }
+/*---------------------------------------------------------------------
+# Header
+-----------------------------------------------------------------------*/
+/* navigation
    ----------------------------------------------------------------- */
-/* Main #main { … }
-   ----------------------------------------------------------------- */
+/*---------------------------------------------------------------------
+# Main
+-----------------------------------------------------------------------*/
+/*---------------------------------------------------------------------
+# Sideber
+-----------------------------------------------------------------------*/
+/*---------------------------------------------------------------------
+# Footer
+-----------------------------------------------------------------------*/
+.site-footer {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 /* ==========================================================================
    Object
    ========================================================================== */
-/* Component
-// 再利用できるパターンとして、小さな単位のモジュール
-   ----------------------------------------------------------------- */
-/* Project
-//プロジェクト固有のパターンであり、いくつかのComponentと、それに該当しない要素によって構成されるもの
-   ----------------------------------------------------------------- */
-/* Utitlity
-//わずかなスタイルの調整のための便利クラス・例外クラス
-   ----------------------------------------------------------------- */
-.d-table {
+/*---------------------------------------------------------------------
+# Component
+-----------------------------------------------------------------------*/
+/*---------------------------------------------------------------------
+# Project
+-----------------------------------------------------------------------*/
+/*---------------------------------------------------------------------
+# Utility
+-----------------------------------------------------------------------*/
+/*---------------------------------------------------------------------
+# RESET
+-----------------------------------------------------------------------*/
+.u-reset-wrap {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.u-reset {
+  margin: 0;
+  padding: 0;
+}
+
+.u-reset-lh, .u-lh0 {
+  line-height: 0;
+}
+
+.u-no-list {
+  list-style: none;
+}
+
+.u-lh1 {
+  line-height: 1;
+}
+
+.u-lh-nomal {
+  line-height: 1.5em;
+}
+
+.u-bg-none {
+  background: none;
+}
+
+.u-w-auto {
+  width: auto;
+}
+
+.u-bold {
+  font-weight: bold;
+}
+
+.u-ovh {
+  overflow: hidden;
+}
+
+@media screen and (max-width: 480px) {
+  .u-sp-hidden {
+    display: none;
+  }
+  .u-sp-visible {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .u-pc-hidden {
+    display: none;
+  }
+  .u-pc-visible {
+    display: block;
+  }
+}
+
+/*---------------------------------------------------------------------
+# LAYOUT
+-----------------------------------------------------------------------*/
+/* LAYOUT
+   ---------------------------------------------------------- */
+.u-d-table {
   display: table;
 }
 
-.table-midlle {
+.u-table-midlle {
   display: table-cell;
   vertical-align: middle;
 }
 
-.table-fix {
+.u-table-fix {
   display: table;
   table-layout: fixed;
   width: 100%;
 }
 
-.table-fix li {
+.u-table-fix li {
   display: table-cell;
   vertical-align: middle;
 }
 
-.table-lyt {
+.u-table-lyt {
   display: table-row-group;
 }
 
-.table-lyt dl {
+.u-table-lyt dl {
   display: table-row;
   margin: 0;
 }
 
-.table-lyt dl dt,
-.table-lyt dl dd {
+.u-table-lyt dl dt,
+.u-table-lyt dl dd {
   display: table-cell;
 }
 
-.reset-wrap {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.s-reset {
-  margin: 0;
-  padding: 0;
-}
-
-.reset-lh, .lh0 {
-  line-height: 0;
-}
-
-.lh1 {
-  line-height: 1em;
-}
-
-.lh-nomal {
-  line-height: 1.2em;
-}
-
-.bg-none {
-  background: none;
-}
-
-.w-auto, .column.w-auto {
-  width: auto;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.ovh {
-  overflow: hidden;
-}
-
-.m-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.m-bottom {
-  margin-bottom: 15px;
-}
-
-.m-top {
-  margin-top: 15px;
-}
-
-.m-left {
-  margin-left: 15px;
-}
-
-.m-right {
-  margin-right: 15px;
-}
-
-.m-0 {
-  margin: 0;
-}
-
-.m-bottom0 {
-  margin-bottom: 0;
-}
-
-.m-top0 {
-  margin-top: 0;
-}
-
-.m-left0 {
-  margin-left: 0;
-}
-
-.m-right0 {
-  margin-right: 0;
-}
-
-.p-0 {
-  padding: 0;
-}
-
-.p-bottom {
-  padding-bottom: 15px;
-}
-
-.p-top {
-  padding-top: 15px;
-}
-
-.p-left {
-  padding-left: 15px;
-}
-
-.p-right {
-  padding-right: 15px;
-}
-
-.m-space {
-  margin: 15px;
-}
-
-.p-space {
-  padding: 15px;
-}
-
-.border {
-  border: 1px solid #797979;
-}
-
-.border-top {
-  border-top: 1px solid #797979;
-}
-
-.border-bottom {
-  border-bottom: 1px solid #797979;
-}
-
-.border-left {
-  border-left: 1px solid #797979;
-}
-
-.border-radiusright {
-  border-right: 1px solid #797979;
-}
-
-.border-bold {
-  border: 2px solid #797979;
-}
-
-.border-bold-top {
-  border-top: 2px solid #797979;
-}
-
-.border-bold-bottom {
-  border-bottom: 2px solid #797979;
-}
-
-.border-bold-left {
-  border-left: 2px solid #797979;
-}
-
-.border-bold-right {
-  border-right: 2px solid #797979;
-}
-
-.font-xlrg {
-  font-size: 1.8rem;
-}
-
-.font-lrg {
-  font-size: 1.4rem;
-}
-
-.font-nml {
-  font-size: 1rem;
-}
-
-.font-sml {
-  font-size: 0.8rem;
-}
-
-.font-xsml {
-  font-size: 0.5rem;
-}
-
-.web_font {
-  font-family: 'Electrolize', sans-serif;
-}
-
-.img-w100, .w100 {
-  width: 100%;
-}
-
-.img-wmax {
-  max-width: 100%;
-}
-
-.t-center {
+.u-t-center {
   text-align: center;
 }
 
-.t-left {
+.u-t-left {
   text-align: left;
 }
 
-.t-right {
+.u-t-right {
   text-align: right;
 }
 
-.fl-left {
+.u-fl-list {
+  overflow: hidden;
+  list-style: none;
+}
+
+.u-fl-list li {
   float: left;
 }
 
-.fl-right {
+.u-fl-left {
+  float: left;
+}
+
+.u-fl-right {
   float: right;
 }
 
-.fl-list {
-  overflow: hidden;
-}
-
-.fl-list li {
-  float: left;
-}
-
-.pointer {
+.u-pointer {
   cursor: pointer;
 }
 
-.inedent {
-  text-indent: -1em;
-  padding-left: 1em;
-}
-
-.relative, pos-r {
+.u-relative, pos-r {
   position: relative;
 }
 
-.absolute, pos-a {
+.u-absolute, pos-a {
   position: absolute;
 }
 
-.fixed, pos-f {
+.u-fixed, pos-f {
   position: fixed;
 }
 
-.pos-left {
+.u-pos-left {
   left: 0;
 }
 
-.pos-right {
+.u-pos-right {
   right: 0;
 }
 
-.pos-top {
+.u-pos-top {
   top: 0;
 }
 
-.pos-bottom {
+.u-pos-bottom {
   bottom: 0;
 }
 
-.pos-center {
+.u-pos-center {
   position: absolute;
   top: 0;
   left: 0;
@@ -442,13 +981,12 @@ a:hover {
   margin: auto;
 }
 
-/* box properties */
-.clearfix {
+.u-clearfix {
   display: block;
   *zoom: 1;
 }
 
-.clearfix:after {
+.u-clearfix:after {
   display: block;
   visibility: hidden;
   font-size: 0;
@@ -457,32 +995,194 @@ a:hover {
   content: ".";
 }
 
-.inline-block {
+/* SPACE
+   ---------------------------------------------------------- */
+.u-m-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.u-m-bottom {
+  margin-bottom: 15px;
+}
+
+.u-m-top {
+  margin-top: 15px;
+}
+
+.u-m-left {
+  margin-left: 15px;
+}
+
+.u-m-right {
+  margin-right: 15px;
+}
+
+.u-m-0 {
+  margin: 0;
+}
+
+.u-m-bottom0 {
+  margin-bottom: 0;
+}
+
+.u-m-top0 {
+  margin-top: 0;
+}
+
+.u-m-left0 {
+  margin-left: 0;
+}
+
+.u-m-right0 {
+  margin-right: 0;
+}
+
+.u-p-0 {
+  padding: 0;
+}
+
+.u-p-bottom {
+  padding-bottom: 15px;
+}
+
+.u-p-top {
+  padding-top: 15px;
+}
+
+.u-p-left {
+  padding-left: 15px;
+}
+
+.u-p-right {
+  padding-right: 15px;
+}
+
+.u-m-space {
+  margin: 15px;
+}
+
+.u-p-space {
+  padding: 15px;
+}
+
+.u-side-space {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* BORDER
+   ---------------------------------------------------------- */
+.u-border {
+  border: 1px solid #797979;
+}
+
+.u-border-top {
+  border-top: 1px solid #797979;
+}
+
+.u-border-bottom {
+  border-bottom: 1px solid #797979;
+}
+
+.u-border-left {
+  border-left: 1px solid #797979;
+}
+
+.u-border-radiusright {
+  border-right: 1px solid #797979;
+}
+
+.u-border-bold {
+  border: 2px solid #797979;
+}
+
+.u-border-bold-top {
+  border-top: 2px solid #797979;
+}
+
+.u-border-bold-bottom {
+  border-bottom: 2px solid #797979;
+}
+
+.u-border-bold-left {
+  border-left: 2px solid #797979;
+}
+
+.u-border-bold-right {
+  border-right: 2px solid #797979;
+}
+
+/* FONTS
+   ---------------------------------------------------------- */
+.u-font-xxlrg {
+  font-size: 2.7rem;
+}
+
+.u-font-xlrg {
+  font-size: 1.8rem;
+}
+
+.u-font-lrg {
+  font-size: 1.4rem;
+}
+
+.u-font-nml {
+  font-size: 1rem;
+}
+
+.u-font-sml {
+  font-size: 0.8rem;
+}
+
+.u-font-xsml {
+  font-size: 0.5rem;
+}
+
+.u-font-xxsml {
+  font-size: 0.75rem;
+}
+
+.u-web_font {
+  font-family: 'Inika', serif;
+}
+
+/* OTHER
+   ---------------------------------------------------------- */
+.u-img-w100, .u-w100 {
+  width: 100%;
+}
+
+.u-img-wmax {
+  max-width: 100%;
+}
+
+.u-inline-block {
   display: inline-block;
   *display: inline;
   *zoom: 1;
 }
 
-.ellipsis {
+.u-ellipsis {
   white-space: nowrap;
   -webkit-text-overflow: ellipsis;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.indent, .notes > li {
-  padding: -1em;
-  text-indent: 1em;
+.u-indent, .u-notes > li {
+  text-indent: 1rem;
+  padding-left: -1rem;
 }
 
-.notes {
+.u-notes {
   font-size: 0.5rem;
   line-height: 1.3em;
   color: #555;
 }
 
-.hovers:hover,
-.hovers:hover img {
+.u-hover:hover,
+.u-hover:hover img {
   filter: alpha(opacity=80);
   -moz-opacity: 0.8;
   opacity: 0.8;
@@ -490,206 +1190,175 @@ a:hover {
           transition: 0.5s;
 }
 
-.text-main, .text-main a {
+/*---------------------------------------------------------------------
+# COLOR
+-----------------------------------------------------------------------*/
+/* TEXT
+   ---------------------------------------------------------- */
+.u-text-main,
+.u-text-main a {
   color: #66CC99;
 }
 
-.text-main:hover, .text-main a:hover {
+.u-text-main:hover,
+.u-text-main a:hover {
   color: #66CC99;
 }
 
-.text-accent, .text-accent a {
+.u-text-accent,
+.u-text-accent a {
   color: #66CC99;
 }
 
-.text-accent:hover, .text-accent a:hover {
+.u-text-accent:hover,
+.u-text-accent a:hover {
   color: #66CC99;
 }
 
-.text-notice, .text-notice a {
+.u-text-notice,
+.u-text-notice a {
   color: #9d261d;
 }
 
-.text-notice:hover, .text-notice a:hover {
+.u-text-notice:hover,
+.u-text-notice a:hover {
   color: #9d261d;
 }
 
-.text-black, .bg-white {
+.u-text-black, .u-bg-white {
   color: #000;
 }
 
-.text-black a, .bg-white a, .text-black a:hover, .bg-white a:hover {
+.u-text-black a, .u-bg-white a, .u-text-black a:hover, .u-bg-white a:hover {
   color: #000;
 }
 
-.text-white, .bg-black {
+.u-text-white, .u-bg-black {
   color: #fff;
 }
 
-.text-white a, .bg-black a, .text-white a:hover, .bg-black a:hover {
+.u-text-white a, .u-bg-black a, .u-text-white a:hover, .u-bg-black a:hover {
   color: #fff;
 }
 
-.text-white, .bg-black {
+.u-text-white, .u-bg-black {
   color: #fff;
 }
 
-.text-white a, .bg-black a, .text-white a:hover, .bg-black a:hover {
+.u-text-white a, .u-bg-black a, .u-text-white a:hover, .u-bg-black a:hover {
   color: #fff;
 }
 
-.text-gray-light {
+.u-text-gray-light {
   color: #999;
 }
 
-.text-gray-light a, .text-gray-light a:hover {
+.u-text-gray-light a, .u-text-gray-light a:hover {
   color: #999;
 }
 
-.text-gray {
+.u-text-gray {
   color: #555;
 }
 
-.text-gray a, .text-gray a:hover {
+.u-text-gray a, .u-text-gray a:hover {
   color: #555;
 }
 
-.text-blue {
+.u-text-blue {
   color: #049cdb;
 }
 
-.text-blue a, .text-blue a:hover {
+.u-text-blue a, .u-text-blue a:hover {
   color: #049cdb;
 }
 
-.text-green {
+.u-text-green {
   color: #46a546;
 }
 
-.text-green a, .text-green a:hover {
+.u-text-green a, .u-text-green a:hover {
   color: #46a546;
 }
 
-.text-red {
+.u-text-red {
   color: #9d261d;
 }
 
-.text-red a, .text-red a:hover {
+.u-text-red a, .u-text-red a:hover {
   color: #9d261d;
 }
 
-.text-yellow {
+.u-text-yellow {
   color: #ffc40d;
 }
 
-.text-yellow a, .text-yellow a:hover {
+.u-text-yellow a, .u-text-yellow a:hover {
   color: #ffc40d;
 }
 
-.text-orange {
+.u-text-orange {
   color: #f89406;
 }
 
-.text-orange a, .text-orange a:hover {
+.u-text-orange a, .u-text-orange a:hover {
   color: #f89406;
 }
 
-.text-pink {
+.u-text-pink {
   color: #c3325f;
 }
 
-.text-pink a, .text-pink a:hover {
+.u-text-pink a, .u-text-pink a:hover {
   color: #c3325f;
 }
 
-.text-purple {
+.u-text-purple {
   color: #7a43b6;
 }
 
-.text-purple a, .text-purple a:hover {
+.u-text-purple a, .u-text-purple a:hover {
   color: #7a43b6;
 }
 
-.bg-link {
+/* BACKGROUND
+   ---------------------------------------------------------- */
+.u-bg-color {
   background: #66CC99;
 }
 
-.bg-main {
+.u-bg-main {
   background: #66CC99;
 }
 
-.bg-accent {
+.u-bg-accent {
   background: #66CC99;
 }
 
-.bg-black {
+.u-bg-black {
   background: #fff;
 }
 
-.bg-white {
+.u-bg-white {
   background: #fff;
 }
 
-.bg-gray {
+.u-bg-gray {
   background: #555;
 }
 
-.bg-gray-light {
+.u-bg-gray-light {
   background: #999;
 }
 
-.cnt-anm-blinking {
-  -webkit-animation: cnt-blink 1.5s ease-in-out infinite alternate;
-  animation: cnt-blink 1.5s ease-in-out infinite alternate;
+/*---------------------------------------------------------------------
+# JACASCRIPT
+-----------------------------------------------------------------------*/
+@media screen and (max-width: 480px) {
+  .js-device-text-change:after {
+    content: attr(data-label);
+  }
+  .js-device-text-change img {
+    display: none;
+  }
 }
-
-.cnt-anm-horizontal {
-  -webkit-animation: cnt-horizontal 1s ease-in-out infinite alternate;
-          animation: cnt-horizontal 1s ease-in-out infinite alternate;
-}
-
-.cnt-anm-vertical {
-  -webkit-animation: cnt-vertical 1s ease-in-out infinite alternate;
-          animation: cnt-vertical 1s ease-in-out infinite alternate;
-}
-
-/*
-# Bourbonの説明
-
-ここにコメントとか説明入れたりすると便利らしい！
-
-`.inner_text`で文字を白くする
-
-```
-<div class="test">
-  <div class="wrapper">
-      <div class="left">左のコンテンツ</div>
-      <div class="right">右のコンテンツ</div>
-  </div>
-  <div class="wrapper">
-      <div class="box">箱のコンテンツ１</div>
-      <div class="box">箱のコンテンツ２</div>
-      <div class="box">箱のコンテンツ３</div>
-      <div class="box">箱のコンテンツ４</div>
-      <div class="box">箱のコンテンツ5</div>
-      <div class="box">箱のコンテンツ6</div>
-      <div class="box">箱のコンテンツ7</div>
-      <div class="box">箱のコンテンツ8</div>
-  </div>
-</div>
-```
-
-サブの内容を入れる
-```
-<div class="test">
-  <div class="wrapper">
-          <div class="none">
-              <div class="boxs">箱のコンテンツ１</div>
-              <div class="boxs">箱のコンテンツ２</div>
-              <div class="boxs">箱のコンテンツ３</div>
-          </div>
-      </div>
-  </div>
-</div>
-```
-*/
