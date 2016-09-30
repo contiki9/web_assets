@@ -31,12 +31,12 @@ SASS mixin
 
 //gradation
 ///////////////////////////////////////////////
-@mixin cnt-gradient-top-lighten($color:$hoge, $lighten:10){
+@mixin cnt-gradient-top-lighten($color:#000, $lighten:10){
 	background-color: $color;
 	@include background-image(linear-gradient(lighten($color, $lighten) 0%, $color 100%));
 }
 
-@mixin cnt-gradient-top-darken($color:$hoge, $darken:10){
+@mixin cnt-gradient-top-darken($color:#FFF, $darken:10){
 	background-color: $color;
 	@include background-image(linear-gradient(darken($color, $darken) 0%, $color 100%));
 }
@@ -149,15 +149,13 @@ SASS mixin
 ///////////////////////////////////////////////
 @mixin cnt-hover($opacity:0.6,$speed:0.5s) {
   &:hover{
-    //filter:alpha(opacity= $opacity);
     -moz-opacity: $opacity;
     opacity: $opacity;
     transition: $speed;
   }
 }
 
-
-//position
+//position-center-middle
 ///////////////////////////////////////////////
 @mixin cnt-pos-absolute ($top: auto, $right: auto, $bottom: auto, $left: auto) {
 	position: absolute;
@@ -167,17 +165,12 @@ SASS mixin
 	left: $left;
 }
 
-//width
+//container
 ///////////////////////////////////////////////
 @mixin cnt-max-container-center($inner:1200){
 	max-width: $inner;
 	@include margin(null auto);
 }
-@mixin cnt-min-container-center($inner:1200){
-	min-width: $inner;
-	@include margin(null auto);
-}
-
 
 //translate
 ///////////////////////////////////////////////
@@ -191,6 +184,7 @@ SASS mixin
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
+
 //animation
 ///////////////////////////////////////////////
 @mixin cnt-anm-blinking($speed:1.5s,$keyframes:cnt-blink){
@@ -212,8 +206,8 @@ SASS mixin
 	100% {opacity:1;}
 }
 
+//縦揺れanimation
 @mixin cnt-anm-horizontal($speed:1s,$keyframes:cnt-horizontal) {
-	//縦揺れ
 	animation: $keyframes $speed ease-in-out infinite alternate;
 }
 @-webkit-keyframes cnt-horizontal{
@@ -229,8 +223,8 @@ SASS mixin
   100% { transform:translateX(  0px); }
 }
 
+//横揺れanimation
 @mixin cnt-anm-vertical($speed:1s,$keyframes:cnt-vertical) {
-	//横揺れ
 	animation: cnt-vertical $speed ease-in-out infinite alternate;
 }
 @-webkit-keyframes cnt-vertical{

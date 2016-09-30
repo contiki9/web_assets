@@ -1,14 +1,16 @@
 /*
-SASS Variables
+SASS Minxin
 */
 
-/* Background colors */
+//Base Font
+@mixin MXfont-family{
+  font-family: "Noto Sans", "Noto Sans CJK JP","Noto Sans Japanese", sans-serif;
+}
 
-$brk:480px;
-$brkSp:480px;
-$brkTbl:768px;
-$brkPc:1024px;
-
+//コンテンツの余白
+@mixin MXsideSpace{
+  @include padding(null 2%);
+}
 
 
 

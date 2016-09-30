@@ -20,6 +20,7 @@
 		display: block;
   }
 }
+
 @include media ($brk){
   .u-pc-hidden{
     display: none;
@@ -80,9 +81,9 @@
 .u-pointer{cursor:pointer;}
 
 
-.u-relative,pos-r{ position: relative;}
-.u-absolute,pos-a{position:absolute;}
-.u-fixed,pos-f{position:fixed;}
+.u-relative{ position: relative;}
+.u-absolute{position:absolute;}
+.u-fixed{position:fixed;}
 .u-pos-left{left:0}
 .u-pos-right{right:0}
 .u-pos-top{top:0}
@@ -105,9 +106,10 @@
     font-size: 0;
     height: 0;
     clear: both;
-    content: ".";
+    content: "";
   }
 }
+
 /* SPACE
    ---------------------------------------------------------- */
 $margin: 15px;
@@ -311,7 +313,6 @@ $space :15px;
 .u-bg-accent{
   background: $accent;
 }
-
 .u-bg-black{
   background: $white;
   @extend .u-text-white;

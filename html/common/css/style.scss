@@ -9,19 +9,15 @@
    ---------------------------------------------------------- */
 @import "../../assets/scss/vendor/bourbon/_bourbon";
 @import "../../assets/scss/vendor/neat/_neat";
-@import "../../assets/scss/_mixin.scss";
 @import "../../assets/scss/vendor/bourbon/_bourbon.scss";
-@mixin MXfont-family{
-  font-family: "Noto Sans", "Noto Sans CJK JP","Noto Sans Japanese", sans-serif;
-}
-@mixin MXsideSpace{
-  @include padding(null 2%);
-}
+@import "../../assets/scss/_mixin.scss";
 
 /* Base
    ---------------------------------------------------------- */
 @import "../../assets/scss/vendor/skeleton/_skeleton.scss";
 @import "../../assets/scss/_variable.scss";
+@import "./scss/_variable.scss";
+@import "./scss/_mixin.scss";
 
 
 /* ==========================================================================
@@ -40,7 +36,7 @@
 
 /* navigation
    ----------------------------------------------------------------- */
-
+@import "scss/layout/_gnav.scss";
 
 /*---------------------------------------------------------------------
 # Main
@@ -52,14 +48,11 @@
 -----------------------------------------------------------------------*/
 @import "scss/layout/_sidebar.scss";
 
-
 /*---------------------------------------------------------------------
 # Footer
 -----------------------------------------------------------------------*/
 @import "scss/layout/_footer.scss";
-.site-footer{
-  @include cnt-max-container-center($container);
-}
+
 
 /* ==========================================================================
    Object

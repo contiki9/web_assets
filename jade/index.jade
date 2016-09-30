@@ -1,14 +1,15 @@
 //- inlide file
 include ./include/_mixin
-- var current = 'gnav2'
+- var current = 'gnav1'
 extends ./include/_layout
 
 block title
-  - title = 'hogehoge';
-  - description = 'これはディスクリプションです';
-  - keywords = 'hogehohe';
-  - url = 'hogehohe';
-  - path = './';
+    - name = 'hogehoge';
+    - title = 'hogehoge';
+    - description = 'hogehoge';
+    - keywords = 'hogehohe';
+    - url = 'hogehohe';
+    - path = './';
 
 block meta
 
@@ -17,14 +18,15 @@ block link
 block script
 
 block body
-  body#top
-    +header('./')
+    body#top
+        +header('./')
 
-    .container
-      section
-        p ここにセクションが入る
+        .container
+            section
+                p ここにセクションが入る
 
-    +footer('./')
+        +footer('./')
+
 
 
 

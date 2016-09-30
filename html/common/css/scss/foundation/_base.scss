@@ -1,24 +1,96 @@
-@font-face {
-  font-family: 'Noto Sans Japanese';
-  font-style: normal;
-  font-weight: 400;
-  src: url("assets/font/NotoSansCJKjp-Regular.eot");
-  src: url("assets/font/NotoSansCJKjp-Regular.eot?#iefix") format("embedded-opentype"), url("assets/font/NotoSansCJKjp-Regular.woff") format("woff"), url("assets/font/NotoSansCJKjp-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: 'Noto Sans Japanese';
-  font-style: normal;
-  font-weight: 700;
-  src: url("assets/font/NotoSansCJKjp-Bold.eot");
-  src: url("assets/font/NotoSansCJKjp-Bold.eot?#iefix") format("embedded-opentype"), url("assets/font/NotoSansCJKjp-Bold.woff") format("woff"), url("assets/font/NotoSansCJKjp-Bold.ttf") format("truetype");
-}
-
-body,html{
+/* #Base
+   -------------------------------------------------------------------------- */
+body, html {
   color: $text;
   @include MXfont-family;
 }
-h1, h2, h3, h4, h5, h6{
-  @include MXfont-family;
+
+body {
+  /* アンチエイリアスを指定する */
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  /* メトリクスカーニングを指定する */
+  font-kerning: normal;
+  background-color: $bg;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  @include MXfont-family;
+  line-height: 1.5;
+}
+
+p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+//ネストされたリストのマージンをリセットします。
+li {
+  > ul, > ol {
+    margin-bottom: 0;
+  }
+}
+
+//`dt`と`dd`の左端を揃えます。
+dd {
+  margin-left: 0;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+a {
+  text-decoration: underline;
+  color: $link;
+  &:visited {
+    color: $link;
+  }
+}
+
+//フルードイメージにします。
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+[src$=".svg"],
+[data$=".svg"] {
+  width: 100%;
+}
+
+//日本語では斜体を使用しないためリセットします。
+[lang="ja"] {
+  i,
+  cite,
+  em,
+  address,
+  dfn {
+    font-style: normal;
+  }
+}
+
+code,
+pre {
+  font-family: Consolas, Menlo, Courier, monospace;
+}
+
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+blockquote, p, address,
+hr,
+table,
+fieldset, figure,
+pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
