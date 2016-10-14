@@ -1,3 +1,6 @@
+////////////////////////////////////////////////////////////////
+////画面いっぱいの高さに指定する
+////////////////////////////////////////////////////////////////
 function js_window_maxHeight() {
     $(window).on('load scroll resize', function () {
         var h = window.innerHeight ? window.innerHeight : $(window).height();
@@ -5,6 +8,10 @@ function js_window_maxHeight() {
     });
 }
 
+
+////////////////////////////////////////////////////////////////
+////今いる場所の同じURLのリンクを削除
+////////////////////////////////////////////////////////////////
 function js_currentUrl() {
     $(function () {
         var activeUrl = location.pathname.split("/")[2];
@@ -13,10 +20,13 @@ function js_currentUrl() {
             if ($(this).attr("href").split("/")[2] == activeUrl) {
                 $(this).addClass("active");
             }
-            ;
         });
     });
 }
+
+////////////////////////////////////////////////////////////////
+////端末後のフラグ設定
+////////////////////////////////////////////////////////////////
 
 var deviceFlug_ua = (function () {
 //ユーザーエージェントをフラグにする場合
