@@ -79,14 +79,14 @@ SCSSを使用している場合コンパイルする
 
 
 
-プロジェクト用CSS構成
+## プロジェクト用CSS構成
 
 ---
- このスタイルシートは[FLOCSS](https://github.com/hiloki/flocss)をベースにしています。
+このスタイルシートは[FLOCSS](https://github.com/hiloki/flocss)をベースにしています。
  定義されているレイヤー以外にも追加してもOKです。
 ---
  プロジェクトで使うscssの格納場所
- scssはすべてここにまとめる。
+ ***scssはすべてここにまとめる。***
  
 
 *  _mixin.scss
