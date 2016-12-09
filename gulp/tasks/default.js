@@ -4,7 +4,17 @@ var del = require('del');
 var pleeease = require('gulp-pleeease');
 var runSequence = require('run-sequence');
 var plumber = require('gulp-plumber');
-var jade = require('gulp-jade');
+
+
+
+//pug
+var pug = require('gulp-pug');
+var fs = require('fs');
+var data = require('gulp-data');
+var path = require('path');
+
+//unity
+var notify = require("gulp-notify");
 
 var config = require('../config');
 
@@ -30,31 +40,58 @@ gulp.task('sass', function () {
 
 });
 
-//jade
-gulp.task("jade", function () {
-    gulp.src([config.src + '**/*.jade', '!' + config.src + '**/_*.jade'])
-        .pipe(plumber())
-        .pipe(jade({
-            pretty: true,
-            compile: {
-                options: {
-                    //pretty: true,
-                    data: {
-                        // コンパイル時に渡しておきたいオブジェクト
-                    },
-                    basedir: '<%= path.src %>/jade'
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= path.src %>/jade',
-                    src: '**/!(_)*.jade',
-                    dest: '<%= path.dist %>',
-                    ext: '.html'
-                }]
-            }
+gulp.task('pug', function() {
+    // JSONファイルの読み込み。
+    var locals = {
+        'site': JSON.parse(fs.readFileSync(config.src + '_data/' + 'site.json')),
+        'data': JSON.parse(fs.readFileSync(config.src + '_data/' + 'data.json'))
+    }
+    return gulp.src([config.src + '**/*.pug', '!' + config.src + '**/_*.pug'])
+        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+        .pipe(data(function(file) {
+            // 各ページごとの`/`を除いたルート相対パスを取得します。
+            locals.relativePath = path.relative(file.base, file.path.replace(/.pug$/, '.html'));
+            return locals;
         }))
-        .pipe(gulp.dest(config.dist));
+        .pipe(pug({
+            // JSONファイルをPugに渡します。
+            locals: locals,
+            // Pugファイルのルートディレクトリを指定します。
+            // `/assets/pug/_layout`のようにルート相対パスを使います。
+            basedir: 'src',
+            // Pugファイルの整形。
+            pretty: true
+        }))
+        .pipe(gulp.dest(config.dist))
 });
+
+
+
+//jade
+// gulp.task("jade", function () {
+//     gulp.src([config.src + '**/*.jade', '!' + config.src + '**/_*.jade'])
+//         .pipe(plumber())
+//         .pipe(jade({
+//             pretty: true,
+//             compile: {
+//                 options: {
+//                     //pretty: true,
+//                     data: {
+//                         // コンパイル時に渡しておきたいオブジェクト
+//                     },
+//                     basedir: '<%= path.src %>/jade'
+//                 },
+//                 files: [{
+//                     expand: true,
+//                     cwd: '<%= path.src %>/jade',
+//                     src: '**/!(_)*.jade',
+//                     dest: '<%= path.dist %>',
+//                     ext: '.html'
+//                 }]
+//             }
+//         }))
+//         .pipe(gulp.dest(config.dist));
+// });
 
 // リリースフォルダ内のファイル削除
 gulp.task('clean', function () {
@@ -113,14 +150,14 @@ gulp.task('watch', function () {
     gulp.watch([config.src + '**/*.css'],['copy-css']);
     gulp.watch([config.src + '**/*.js'],['copy-js']);
     gulp.watch([config.src + '**/images/*'],['copy-img']);
-    gulp.watch([config.src + '**/*.jade'], ['jade']);
+    gulp.watch([config.src + '**/*.pug'], ['pug']);
 });
 
 
 gulp.task('default', function(callback) {
     return runSequence(
         'clean',
-        ['jade', 'sass', 'output'],
+        ['pug', 'sass', 'output'],
         'watch',
         callback
     );
