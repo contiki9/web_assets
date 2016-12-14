@@ -8,5 +8,7 @@ gen
 /*.cfg
 
 # node
-/node_modules
-/styleguide
+/node_modules/
+/styleguide/
+/dist/
+
