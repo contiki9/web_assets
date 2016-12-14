@@ -6,3 +6,9 @@ gen
 
 # Apply
 /*.cfg
+
+# node
+/node_modules/
+/styleguide/
+/dist/
+
