@@ -5,6 +5,8 @@ var pleeease = require('gulp-pleeease');
 var runSequence = require('run-sequence');
 var plumber = require('gulp-plumber');
 
+//browserSync
+var browserSync = require('browser-sync');
 
 
 //pug
@@ -67,31 +69,6 @@ gulp.task('pug', function() {
 
 
 
-//jade
-// gulp.task("jade", function () {
-//     gulp.src([config.src + '**/*.jade', '!' + config.src + '**/_*.jade'])
-//         .pipe(plumber())
-//         .pipe(jade({
-//             pretty: true,
-//             compile: {
-//                 options: {
-//                     //pretty: true,
-//                     data: {
-//                         // コンパイル時に渡しておきたいオブジェクト
-//                     },
-//                     basedir: '<%= path.src %>/jade'
-//                 },
-//                 files: [{
-//                     expand: true,
-//                     cwd: '<%= path.src %>/jade',
-//                     src: '**/!(_)*.jade',
-//                     dest: '<%= path.dist %>',
-//                     ext: '.html'
-//                 }]
-//             }
-//         }))
-//         .pipe(gulp.dest(config.dist));
-// });
 
 // リリースフォルダ内のファイル削除
 gulp.task('clean', function () {
@@ -144,15 +121,31 @@ gulp.task('copy-css', function () {
 });
 
 
-gulp.task('watch', function () {
-    gulp.watch([config.src + '**/*.scss'],['sass']);
-    gulp.watch([config.src + '**/*.html']);
-    gulp.watch([config.src + '**/*.css'],['copy-css']);
-    gulp.watch([config.src + '**/*.js'],['copy-js']);
-    gulp.watch([config.src + '**/images/*'],['copy-img']);
-    gulp.watch([config.src + '**/*.pug'], ['pug']);
+// browserSync
+gulp.task('browser-sync', function () {
+    browserSync({
+        server: {
+            baseDir: './dist/',
+            index: 'index.html'
+        }
+    });
 });
 
+gulp.task('bs-reload', function () {
+    console.log('--------- bs-reload task ----------');
+    browserSync.reload();
+});
+
+
+
+gulp.task('watch', function () {
+    gulp.watch([config.src + '**/*.scss'],['sass','bs-reload']);
+    gulp.watch([config.src + '**/*.html']);
+    gulp.watch([config.src + '**/*.css'],['copy-css','bs-reload']);
+    gulp.watch([config.src + '**/*.js'],['copy-js','bs-reload']);
+    gulp.watch([config.src + '**/images/*'],['copy-img','bs-reload']);
+    gulp.watch([config.src + '**/*.pug'], ['pug','bs-reload']);
+});
 
 gulp.task('default', function(callback) {
     return runSequence(
@@ -162,5 +155,15 @@ gulp.task('default', function(callback) {
         callback
     );
 });
+
+gulp.task('heroku', function(callback) {
+    return runSequence(
+        'clean',
+        ['pug', 'sass', 'output'],
+        callback
+    );
+});
+
+gulp.task('sync', ['browser-sync','watch']);
 
 
