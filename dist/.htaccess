@@ -2,7 +2,7 @@
 deny from all
 </Files>
 Options -Indexes
-AuthUserFile vendor/bin/heroku-php-apache2 dist/.htpasswd
+AuthUserFile /app/.htpasswd
 AuthGroupFile /dev/null
 AuthName "Please enter your ID and password"
 AuthType Basic
