@@ -35,7 +35,6 @@
     "run-sequence": "^1.2.2"
   },
   "devDependencies": {
-    //こっちがコピーする方
     "browser-sync": "^2.11.2",
     "del": "^2.2.0",
     "fs": "0.0.1-security",
