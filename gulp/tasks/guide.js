@@ -51,7 +51,7 @@ gulp.task('re-styleguide', function(callback) {
 });
 
 // browserSync
-gulp.task('browser-sync', function () {
+gulp.task('gide-browser-sync', function () {
   browserSync({
     server: {
       baseDir: './styleguide/',
@@ -91,4 +91,4 @@ var guideTask = function (callback) {
   callback();
 };
 
-gulp.task('guide', ['browser-sync'],guideTask);
+gulp.task('guide', ['gide-browser-sync'],guideTask);
