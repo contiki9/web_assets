@@ -17,6 +17,7 @@ var path = require('path');
 
 //unity
 var notify = require("gulp-notify");
+var watch = require("gulp-watch");
 
 var config = require('../config');
 
@@ -139,12 +140,39 @@ gulp.task('bs-reload', function () {
 
 
 gulp.task('watch', function () {
-    gulp.watch([config.src + '**/*.scss'],['sass','bs-reload']);
-    gulp.watch([config.src + '**/*.html']);
-    gulp.watch([config.src + '**/*.css'],['copy-css','bs-reload']);
-    gulp.watch([config.src + '**/*.js'],['copy-js','bs-reload']);
-    gulp.watch([config.src + '**/images/*'],['copy-img','bs-reload']);
-    gulp.watch([config.src + '**/*.pug'], ['pug','bs-reload']);
+    watch([config.src + '**/*.scss'], function(event){
+        return runSequence(
+            'sass',
+            'bs-reload'
+        );
+    });
+    watch([config.src + '**/*.html'], function(event){
+
+    });
+    watch([config.src + '**/*.css'], function(event){
+        return runSequence(
+            'copy-css',
+            'bs-reload'
+        );
+    });
+    watch([config.src + '**/*.js'], function(event){
+        return runSequence(
+            'copy-js',
+            'bs-reload'
+        );
+    });
+    watch([config.src + '**/images/*'], function(event){
+        return runSequence(
+            'copy-img',
+            'bs-reload'
+        );
+    });
+    watch([config.src + '**/*.pug'], function(event){
+        return runSequence(
+            'pug',
+            'bs-reload'
+        );
+    });
 });
 
 gulp.task('default', function(callback) {

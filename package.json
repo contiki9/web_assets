@@ -55,6 +55,7 @@
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.2.0",
     "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.11",
     "imagemin-pngquant": "^5.0.0",
     "path": "^0.12.7",
     "require-dir": "^0.3.0",
