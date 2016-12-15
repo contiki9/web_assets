@@ -1,104 +1,95 @@
 
 # ディレクトリ構成
-##HTML
+##dist
+コンパイル後のディレクトリ。
+※コンパイルするためこのディレクトリはバージョン管理しない
 
+##src
+コンパイル用のファイルディレクトリ。
+画像やpugなどはこちらをつかう。
 
-静的ページのディレクトリ。
-jadeのコンパイル先でもある。
-※jadeを使わない場合は不要
+###***src/assets***
+SASS/images/js/font/など読み込むファイルはこのディレクトリにまとめる。
 
-###***html/assets***
- 
-常に使用するベースとなる構成のファイル。
-原則案件毎に更新・変更はなし。
-
-***html/assets/font***
+***src/assets/font***
 
 WEBfontを格納
-使用しているのは[NotoSans](https://www.google.com/get/noto/)
+主に使用しているのは[NotoSans](https://www.google.com/get/noto/)
+※日本語fontでなければCDNを使うのを推奨
 
-***html/assets/js***
+***src/assets/js***
 
  汎用的なJSの関数を格納
  
-***html/assets/scss***
+***src/assets/scss***
 
-汎用的なSCSSを格納
+SCSSを格納
 
-***・_ggc_palette.scss***
+***src/assets/scss/assets***
+- _ggc_palette.scss
+    - マテリアルカラーを変数化したファイル
+    - 別に使わなくても良い
+- _mixin.scss
+    - 汎用的なMixin
+    - 接頭語にcnt-が付きます
 
-マテリアルカラーを変数化したファイル
-
-***・_mixin.scss***
-
-汎用的なMixin
-
-***・_module.scss***
-
-イレギュラーなときに単体で使うCSSをまとめたもの。
-原則頭に`u-`をつける。
-
-***・_variable.scss***
-
-SCSSの変数をまとめたもの
-
-       
-###***html/common***
-
-プロジェクトの共通ファイルを格納
-
-***html/common/css***
-
-プロジェクトの共通のCSSを格納
-SCSSを使用している場合コンパイルする
-
-***html/common/images***
-
-プロジェクトで共通して使う画像の格納場所
-
-***html/common/js***
-
-プロジェクトで共通して使うJSの格納場所
-
-***html/assets/scss/vendor***
+***src/assets/scss/assets/vendor***
 外部で制作されたライブラリなどをまとめて置く場所※汎用的にいつも使うものを格納
 個々のプロジェクト単位でディレクトリで区切る。
 
-* [bourbon](http://neat.bourbon.io/)
-    * MIXIN集
+- [bourbon](http://neat.bourbon.io/)
+    - MIXIN集
 
-* [neat](http://neat.bourbon.io/)
-    * GlidのMIXIN集
+- [neat](http://neat.bourbon.io/)
+    - GlidのMIXIN集
 
-* [dlex](https://contiki9.github.io/dlex/)
-    * FlexboxのCSSフレームワーク
+- [dlex](https://contiki9.github.io/dlex/)
+    - FlexboxのCSSフレームワーク
 
-* [skeleton](http://getskeleton.com/)
-    * シンプルなレスポンシブ対応のフレームワーク。
-    * 主にhtmlのみ見栄えとして活用
+- [skeleton](http://getskeleton.com/)
+    - シンプルなレスポンシブ対応のフレームワーク。
+    - 主にhtmlのみ見栄えとして活用
+    
+- [UIKIT](https://getuikit.com/)
+    - なんでも揃ったCSSフレームワーク。
+    - 接頭語に`uk-*`がつくのが特徴
+     
 
+***src/assets/images***
+
+プロジェクトで共通して使う画像の格納場所
+
+***src/assets/js***
+
+プロジェクトで共通して使うJSの格納場所
+
+---
 
 
 ## プロジェクト用CSS構成
 
----
+```
 このスタイルシートは[FLOCSS](https://github.com/hiloki/flocss)をベースにしています。
  定義されているレイヤー以外にも追加してもOKです。
----
+```
+
+## src/assets/scss/style.scss
  プロジェクトで使うscssの格納場所
- ***scssはすべてここにまとめる。***
  
+ ***作成するscssはすべてここにまとめる。***
+ 
+-  _mixin.scss
+    - プロジェクト用のMixin
+    - 接頭語に`mx-*`をつけてください
+    
+-  _extend.scss
+    - プロジェクト用のExtend集
+    - 接頭語に`ex-*`をつけてください
 
-*  _mixin.scss
-
-    * プロジェクト用のMixin
-
-*  _variable.scss
-
-    * プロジェクト用のSCSSの変数をまとめたもの
-    * 場合によってはassetsのものを上書きする。
-
-***html/common/scss/foundation***
+-  _variable.scss
+    - プロジェクト用のSCSSの変数をまとめたもの
+    
+***src/assets/scss/foundation***
 
 Foundationレイヤーでは`html`や`body`のような広範囲にわたるベーススタイル、
 `h2`や`ul`のような基本的なタイプセレクタのデフォルトスタイルを定義します。
@@ -138,7 +129,7 @@ Layoutレイヤーはヘッダーやフッターのような、ページを構�
 ***html/common/scss/object***
  
  Objectレイヤーはプロジェクトにおけるビジュアルパターンです。抽象度や詳細度、
- 拡張性などによって、4つのレイヤーにわけられます。
+ 拡張性などによって、5つのレイヤーにわけられます。
  それぞれのレイヤーにはプレフィックス（接頭辞）をつけます。
 　詳細はstyle.scssにコメントアウトいているのでそちらで確認してください。
  
@@ -146,26 +137,39 @@ Layoutレイヤーはヘッダーやフッターのような、ページを構�
  * Project（`p-`）
  * Scope(`s-`)
  * Utility（`u-`）
+ * js（`js-`）
  
  ランディングページのようにページ特有のスタイルを多く含む場合は、
  ページ専用のCSSファイルを作成することもできます。
  ページ専用のスタイルは、そのページにだけ読み込ませることでスコープをつくります。
  
- ***html/common/scss/vendor***
+ ***src/assets/scss/vendor***
 
-外部で制作されたライブラリなどをまとめて置く場所※このプロジェクトで使用するもの
+外部で制作されたライブラリなどをまとめて置く場所。
 個々のプロジェクト単位でディレクトリで区切る。
+```
+//jqueryの場合
 
-## jade
+/jquert/jquery.js
+```
 
- * index.jade
-    * TOPページのjade。構成のサンプル用
+## Pugについて
+pugはHTML生成のジェネレーターです。
+PHPなどがなくてもコードの共通化が可能になるので積極的に使っていきます。
+
+ * index.pug
+    * TOPページの.pug。構成のサンプル用
  
-***jade/include/***
+***src/_include/***
 
-* _layout.jade
-    * ページの構成をまとめるベースのjade
+* _layout..pug
+    * ページの構成をまとめるベースの.pug
 
-* _mixin.jade
-    * jadeのMixin用ファイル
+* _mixin..pug
+    * .pugのMixin用ファイル
+    
+***src/_data/***
+
+サイト共通の情報を登録するjson
+
     
