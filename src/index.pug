@@ -15,7 +15,6 @@ append variables
     //- Not modified
     - var pageUrl= relativePath;
     - var pageDir= './';
-    - var pageCurrent = '';
 
 
     block meta
@@ -25,8 +24,13 @@ append variables
     block script
 
 block body
-    body#top
-        +header()
+    body#home
+        +header(pageDir,'home')
+
+        +breadcrumb(
+        {pageName: '2階層目', dir: 'second/', next: true},
+        {pageName: '3階層目', dir: 'third/', next: false}
+        )
         h1 PR用です
         .tes
             include /_include/test/_html_tag

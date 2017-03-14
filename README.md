@@ -11,7 +11,7 @@
 ###***src/assets***
 SASS/images/js/font/など読み込むファイルはこのディレクトリにまとめる。
 
-***src/assets/font***
+***src/assets/fonts***
 
 WEBfontを格納
 主に使用しているのは[NotoSans](https://www.google.com/get/noto/)

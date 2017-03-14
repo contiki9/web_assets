@@ -1,29 +1,47 @@
 //--------------------------------------
-//- Global
+//- GlobalNav
 //--------------------------------------
 mixin gnav(path,current)
     nav
         ul
-            if current = 'gnav1'
-                li(class='active') ナビゲーション
+            if current == 'home'
+                li(class='current'): span ナビゲーション1
             else
-                li: a(href='/gnav1/') ナビゲーション
+                li: a(href=path + '/gnav1/') ナビゲーション1
 
-            if current === 'gnav2'
-                li(class='active') ナビゲーション
+            if current == 'gnav2'
+                li(class='current'): span ナビゲーション2
             else
-                li: a(href='/gnav2/') ナビゲーション
+                li: a(href=path + '/gnav2/') ナビゲーション2
+
 //--------------------------------------
 //- Header
 //--------------------------------------
-mixin header()
+mixin header(path, current)
     header.header
         h1.logo ここにタイトルが入ります。
-        +gnav()
+        +gnav(path, current)
 //--------------------------------------
 //- Footer
 //--------------------------------------
 mixin footer()
     footer.footor
-        p.copy Copyright &copy 2016 . All rights reserved.
+        p.copy Copyright &copy 2016 . All rights reserved
 
+
+
+//--------------------------------------
+//- Footer
+//--------------------------------------
+mixin breadcrumb(...items)
+    .breadcrumb
+        ul
+            li
+                a(href='/') home
+            each item in items
+                if(item.next)
+                    li
+                        a(href='/#{item.dir}') #{item.pageName}
+                else
+                    li.is-current
+                        span #{item.pageName}
