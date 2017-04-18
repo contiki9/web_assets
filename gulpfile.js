@@ -232,6 +232,21 @@ gulp.task('re-styleguide', function (callback) {
     );
 });
 
+
+////////////////////////////////////////////////
+//venderのコピー
+////////////////////////////////////////////////
+gulp.task('copy-vender', function() {
+
+////////////////// All Bootstrap 4 Assets /////////////////////////
+// Copy all Bootstrap JS files
+    var stream = gulp.src(paths.node + 'bootstrap/dist/js/**/*.js')
+        .pipe(gulp.dest(develop.assets + '/js/vender/bootstrap4'));
+
+
+    return stream;
+});
+
 ///////////////////////////////////////////////
 //その他
 ////////////////////////////////////////////////
