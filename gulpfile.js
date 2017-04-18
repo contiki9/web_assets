@@ -5,6 +5,13 @@ var sass = require('gulp-sass');
 var pleeease = require('gulp-pleeease');
 var plumber = require('gulp-plumber');
 
+//pug
+var pug = require('gulp-pug');
+var fs = require('fs');
+var data = require('gulp-data');
+var path = require('path');
+
+
 //画像圧縮
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
@@ -19,6 +26,8 @@ var browserSync = require('browser-sync');
 var aigis = require('gulp-aigis');
 
 // Utility
+var notify = require("gulp-notify");
+var watch = require("gulp-watch");
 var runSequence = require('run-sequence');
 var del = require('del');
 
@@ -30,13 +39,13 @@ var del = require('del');
 //開発用ディレクトリ
 var develop = {
     'root': './src/',
-    'assets': root + 'assets/'
+    'assets': './src/assets/'
 };
 
 //コンパイル先
 var release = {
     'root': './dist/',
-    'css': root + 'css/'
+    'css': './dist/css/'
 };
 
 // Defining base pathes
@@ -49,6 +58,7 @@ var paths = {
 // automatically reloads the page when files changed
 var browserSyncWatchFiles = [
     develop.root + './**/*.pug',
+    develop.assets + '**/scss/*.scss',
     release.root + '**/css/*.css',
     release.root + '**/js/*.js',
     release.root + '**/*.php',
@@ -187,7 +197,7 @@ gulp.task('aigis', function () {
 ////////////////////////////////////////////////
 gulp.task('clean-styleguide', function () {
     console.log('--------- clean-styleguide task ----------');
-    return del('./styleguide/' + '**/*');
+    return del(paths.guide + '**/*');
 });
 
 
@@ -246,6 +256,7 @@ gulp.task('output', function (callback) {
 
 // gulpのデフォルト
 gulp.task('default', ['output'], function () {
+    gulp.watch(develop.root + '**/*.pug', ['re-pug']);
     gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass']);
     gulp.watch(develop.assets + 'images/**/*', ['image-min']);
     gulp.watch(develop.assets + 'js/**/*', ['uglify']);
@@ -254,8 +265,8 @@ gulp.task('default', ['output'], function () {
 });
 // gulpのデフォルト
 gulp.task('sync', ['browser-sync'], function () {
-    gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass']);
     gulp.watch(develop.root + '**/*.pug', ['re-pug']);
+    gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass']);
     gulp.watch('./**/*.html', ['bs-reload']);
     gulp.watch('./**/*.php', ['bs-reload']);
 });
