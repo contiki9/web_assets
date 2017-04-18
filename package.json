@@ -1,11 +1,12 @@
 {
   "name": "plojectName",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "gulp.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "private": true,
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -32,12 +33,15 @@
     "imagemin-pngquant": "^5.0.0",
     "path": "^0.12.7",
     "require-dir": "^0.3.0",
-    "run-sequence": "^1.2.2"
-
+    "run-sequence": "^1.2.2",
+    "uikit": "uikit/uikit"
   },
   "devDependencies": {
+    "Skeleton-Sass": "WhatsNewSaes/Skeleton-Sass",
+    "bourbon": "thoughtbot/bourbon",
     "browser-sync": "^2.11.2",
     "del": "^2.2.0",
+    "dlex": "contiki9/dlex",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
     "gulp-aigis": "^1.2.0",
@@ -53,14 +57,17 @@
     "gulp-pleeease": "^2.0.2",
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.2.0",
+    "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.2.0",
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.11",
     "imagemin-pngquant": "^5.0.0",
+    "neat": "thoughtbot/neat",
     "path": "^0.12.7",
     "require-dir": "^0.3.0",
-    "run-sequence": "^1.2.2"
-
+    "run-sequence": "^1.2.2",
+    "skeleton-css": "^2.0.4",
+    "uikit": "uikit/uikit"
   }
 }

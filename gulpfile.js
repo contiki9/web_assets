@@ -30,6 +30,7 @@ var notify = require("gulp-notify");
 var watch = require("gulp-watch");
 var runSequence = require('run-sequence');
 var del = require('del');
+var rename = require("gulp-rename");
 
 
 ////////////
@@ -236,13 +237,26 @@ gulp.task('re-styleguide', function (callback) {
 ////////////////////////////////////////////////
 //venderのコピー
 ////////////////////////////////////////////////
-gulp.task('copy-vender', function() {
+gulp.task('copy-vendor', function () {
+    console.log('--------- copy-vender task ----------');
+    // Copy uikit
+    var stream = gulp.src(paths.node + 'uikit/src/scss/**/*.scss')
+        .pipe(gulp.dest(develop.assets + '/scss/vendor/uikit'))
 
-////////////////// All Bootstrap 4 Assets /////////////////////////
-// Copy all Bootstrap JS files
-    var stream = gulp.src(paths.node + 'bootstrap/dist/js/**/*.js')
-        .pipe(gulp.dest(develop.assets + '/js/vender/bootstrap4'));
+    gulp.src(paths.node + 'uikit/src/js/uikit.js')
+        .pipe(gulp.dest(develop.assets + '/js/vendor/uikit'));
 
+    // Copy Skeleton
+    gulp.src(paths.node + 'skeleton-scss/scss/**/*.scss')
+        .pipe(gulp.dest(develop.assets + '/scss/vendor/skeleton-scss'));
+
+    // Copy Bourbon
+    gulp.src(paths.node + 'bourbon/core/**/*.scss')
+        .pipe(gulp.dest(develop.assets + '/scss/vendor/bourbon'));
+
+    // Copy Neat
+    gulp.src(paths.node + 'bourbon-neat/core/**/*.scss')
+        .pipe(gulp.dest(develop.assets + '/scss/vendor/bourbon-neat'));
 
     return stream;
 });
@@ -275,7 +289,7 @@ gulp.task('output', function (callback) {
     return runSequence(
         'release-clean',
         'copy',
-        ['pug','sass', 'image-min', 'uglify'],
+        ['pug', 'sass', 'image-min', 'uglify'],
         'bs-reload',
         callback
     );

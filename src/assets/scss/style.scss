@@ -4,11 +4,11 @@
 -----------------------------------------------------------------------*/
 /* mixIn
    ---------------------------------------------------------- */
-//@import "assets/vendor/bourbon/bourbon";
-//@import "assets/vendor/neat/neat";
+@import "vendor/bourbon/bourbon";
+@import "vendor/bourbon-neat/neat";
 //@import "assets/vendor/dlex/dlex";
 //@import "assets/vendor/dlex/mixin";
-@import "assets/mixin";
+@import "mixin";
 
 /* Framework
    ---------------------------------------------------------- */
@@ -18,7 +18,7 @@
 /* Base
    ---------------------------------------------------------- */
 @import "variable";
-@import "mixin";
+@import "mixin_theme";
 @import "extend";
 
 /* ==========================================================================
@@ -75,6 +75,7 @@
  * プレフィックス（接頭辞）として`p-`をつけます。
  */
 @import "object/project/project";
+
 
 
 /*---------------------------------------------------------------------
