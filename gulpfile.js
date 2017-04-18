@@ -166,7 +166,19 @@ gulp.task('uglify', function () {
 gulp.task('copy', function () {
     console.log('--------- output task ----------');
     gulp.src(
-        [develop.root + '**', '!' + develop.assets + '**/scss/**', '!' + develop.assets + '**/scss/', develop.assets + '**/*.css', develop.assets + '**/js/*.js', develop.assets + '**/fonts/*.{eot,oft,ttf,woff,woff2}', develop.assets + '**/images/*.{png,jpg,gif,svg}'],
+        [develop.root + '**',
+            '!' + develop.root + '**/*.pug',
+            '!' + develop.root + '**/_include/*',
+            '!' + develop.root + '**/_include',
+            '!' + develop.root + '**/_data/*',
+            '!' + develop.root + '**/_data',
+            '!' + develop.assets + '**/scss/**',
+            '!' + develop.assets + '**/scss/',
+            develop.assets + '**/*.html',
+            develop.assets + '**/*.css',
+            develop.assets + '**/js/*.js',
+            develop.assets + '**/fonts/*.{eot,oft,ttf,woff,woff2}',
+            develop.assets + '**/images/*.{png,jpg,gif,svg}'],
         {base: develop.root}
     )
         .pipe(gulp.dest(release.root));
@@ -197,7 +209,7 @@ gulp.task('aigis', function () {
 ////////////////////////////////////////////////
 gulp.task('clean-styleguide', function () {
     console.log('--------- clean-styleguide task ----------');
-    return del(paths.guide + '**/*');
+    return del(paths.guide + '**/*', '!.gitkeep');
 });
 
 
@@ -240,14 +252,15 @@ gulp.task('re-pug', function (callback) {
 
 
 // リリースフォルダ内のファイル削除
-gulp.task('clean', function () {
+gulp.task('release-clean', function () {
     console.log('--------- clean task ----------');
-    return del(config.dist + '**/*');
+    return del(release.root + '**/*', '!.gitkeep');
 });
 gulp.task('output', function (callback) {
     return runSequence(
+        'release-clean',
         'copy',
-        ['sass', 'image-min', 'uglify'],
+        ['pug','sass', 'image-min', 'uglify'],
         'bs-reload',
         callback
     );

@@ -4,23 +4,22 @@
 -----------------------------------------------------------------------*/
 /* mixIn
    ---------------------------------------------------------- */
-@import "assets/vendor/bourbon/bourbon";
-@import "assets/vendor/neat/neat";
+//@import "assets/vendor/bourbon/bourbon";
+//@import "assets/vendor/neat/neat";
 //@import "assets/vendor/dlex/dlex";
-@import "assets/vendor/dlex/mixin";
+//@import "assets/vendor/dlex/mixin";
 @import "assets/mixin";
 
 /* Framework
    ---------------------------------------------------------- */
-@import "assets/vendor/skeleton/skeleton";
-@import "assets/vendor/uikit/uikit";
+//@import "assets/vendor/skeleton/skeleton";
+//@import "assets/vendor/uikit/uikit";
 
 /* Base
    ---------------------------------------------------------- */
 @import "variable";
 @import "mixin";
 @import "extend";
-
 
 /* ==========================================================================
    Foundation
