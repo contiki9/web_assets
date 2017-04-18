@@ -59,8 +59,12 @@ var browserSyncWatchFiles = [
 // browser-sync options
 // see: https://www.browsersync.io/docs/options/
 var browserSyncOptions = {
-    proxy: "localhost/wordpress/",
-    notify: false
+    //proxy: "localhost/wordpress/",
+    notify: false,
+    server: {
+        baseDir: release.root,
+        index: 'index.html'
+    }
 };
 
 var AUTOPREFIXER_BROWSERS = [
@@ -105,10 +109,10 @@ gulp.task('sass', function () {
 gulp.task('pug', function () {
     // JSONファイルの読み込み。
     var locals = {
-        'site': JSON.parse(fs.readFileSync(config.src + '_data/' + 'site.json')),
-        'data': JSON.parse(fs.readFileSync(config.src + '_data/' + 'data.json'))
+        'site': JSON.parse(fs.readFileSync(develop.root + '_data/' + 'site.json')),
+        'data': JSON.parse(fs.readFileSync(develop.root + '_data/' + 'data.json'))
     }
-    return gulp.src([develop.assets + '**/*.pug', '!' + develop.assets + '**/_*.pug'])
+    return gulp.src([develop.root + '**/*.pug', '!' + develop.root + '**/_*.pug'])
         .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
         .pipe(data(function (file) {
             // 各ページごとの`/`を除いたルート相対パスを取得します。
@@ -251,6 +255,7 @@ gulp.task('default', ['output'], function () {
 // gulpのデフォルト
 gulp.task('sync', ['browser-sync'], function () {
     gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass']);
+    gulp.watch(develop.root + '**/*.pug', ['re-pug']);
     gulp.watch('./**/*.html', ['bs-reload']);
     gulp.watch('./**/*.php', ['bs-reload']);
 });
