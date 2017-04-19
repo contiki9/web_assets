@@ -25,6 +25,9 @@ var browserSync = require('browser-sync');
 // Styleguide
 var aigis = require('gulp-aigis');
 
+//htmlCheck
+var htmlhint = require("gulp-htmlhint");
+
 // Utility
 var notify = require("gulp-notify");
 var watch = require("gulp-watch");
@@ -101,7 +104,10 @@ var AUTOPREFIXER_BROWSERS = [
 // sass
 gulp.task('sass', function () {
     console.log('--------- sass task ----------');
-    return gulp.src(develop.assets + 'scss/**/*.scss')
+    return gulp.src([
+        develop.assets + 'scss/**/*.scss',
+        '!' + develop.assets + 'scss/vendor/**/*.scss'
+    ])
         .pipe(plumber({
             errorHandler: function (err) {
                 console.log(err.messageFormatted);
@@ -111,7 +117,7 @@ gulp.task('sass', function () {
         .pipe(sass())
         .pipe(pleeease({
             autoprefixer: {"browsers": AUTOPREFIXER_BROWSERS},
-            minifier: false,
+            minifier: true,
         }))
         .pipe(gulp.dest(release.css));
 });
@@ -243,7 +249,7 @@ gulp.task('copy-vendor', function () {
     var stream = gulp.src(paths.node + 'uikit/src/scss/**/*.scss')
         .pipe(gulp.dest(develop.assets + '/scss/vendor/uikit'))
 
-    gulp.src(paths.node + 'uikit/src/js/uikit.js')
+    gulp.src(paths.node + 'uikit/dist/js/uikit.js')
         .pipe(gulp.dest(develop.assets + '/js/vendor/uikit'));
 
     // Copy Skeleton
@@ -258,7 +264,40 @@ gulp.task('copy-vendor', function () {
     gulp.src(paths.node + 'bourbon-neat/core/**/*.scss')
         .pipe(gulp.dest(develop.assets + '/scss/vendor/bourbon-neat'));
 
+    // Copy dlex
+    gulp.src(paths.node + 'dlex/docs/scss/**/*dlex.scss')
+        .pipe(gulp.dest(develop.assets + '/scss/vendor/dlex'));
+    gulp.src(paths.node + 'dlex/docs/scss/**/*mixin.scss')
+        .pipe(gulp.dest(develop.assets + '/scss/vendor/dlex'));
+
     return stream;
+});
+
+///////////////////////////////////////////////
+//HTMLの文法チェック
+////////////////////////////////////////////////
+gulp.task('check-html', function () {
+    console.log('--------- check-html task ----------');
+    //opstion ルール
+    //https://github.com/yaniswang/HTMLHint/wiki/Rules
+    gulp.src(release.root + '/**/*.html')
+        .pipe(htmlhint(
+            {
+                "alt-require": true,
+                "attr-lowercase": true,
+                "attr-value-double-quotes": true,
+                "doctype-first": false,
+                "tag-pair": true,
+                "tag-self-close": false,
+                "spec-char-escape": true,
+                "id-unique": true,
+                "src-not-empty": true,
+                "attr-no-duplication": true,
+                "title-require": true,
+                "doctype-html5": true,
+            }
+        ))
+        .pipe(htmlhint.reporter());
 });
 
 ///////////////////////////////////////////////
@@ -274,6 +313,7 @@ gulp.task('re-sass', function (callback) {
 gulp.task('re-pug', function (callback) {
     return runSequence(
         'pug',
+        'check-html',
         'bs-reload',
         callback
     );
@@ -290,6 +330,7 @@ gulp.task('output', function (callback) {
         'release-clean',
         'copy',
         ['pug', 'sass', 'image-min', 'uglify'],
+        'check-html',
         'bs-reload',
         callback
     );

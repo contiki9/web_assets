@@ -20,11 +20,14 @@ $font-xsml:10;
 //Setting
 // --------------------------------------------------
 $container:960px;//Containerサイズ
-$brk:480px;//ブレイクポイント
 
-//$brk_sp:480px;//細かく分ける時用コメントアウト時は使用しません。
-//$brk_tb:767px;//細かく分ける時用コメントアウト時は使用しません。
-//$brk_pc:960px;//細かく分ける時用コメントアウト時は使用しません。
+//breakpointサイズ
+$breakpoints: (
+  'brk': 'screen and (max-width: 768px)',
+  'sp': 'screen and (max-width: 400px)',
+  'tb': 'screen and (max-width: 768px)',
+  'pc': 'screen and (min-width: 769px)',
+) !default;
 
 
 

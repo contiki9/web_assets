@@ -16,11 +16,11 @@
 /*---------------------------------------------------------------------
 //それ以外:
 -----------------------------------------------------------------------*/
-@include media (max-width $brk){
+@include mq() {
   .js-device-text-change:after {
-    content:attr(data-label);
+    content: attr(data-label);
   }
   .js-device-text-change img {
-    display:none;
+    display: none;
   }
 }
