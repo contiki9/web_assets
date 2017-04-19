@@ -9,6 +9,9 @@
   "private": true,
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "postinstall": "gulp copy-vendor"
+  },
   "dependencies": {
     "Skeleton-Sass": "WhatsNewSaes/Skeleton-Sass",
     "bourbon": "thoughtbot/bourbon",
