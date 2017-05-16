@@ -113,3 +113,10 @@
 # Pulugin
 -----------------------------------------------------------------------*/
 //@import "vendor/*";
+
+
+.btna{
+  @include cnt-btn-nu($color-link,$color-text);
+
+}
+
