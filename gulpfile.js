@@ -49,7 +49,8 @@ var develop = {
 //コンパイル先
 var release = {
     'root': './dist/',
-    'css': './dist/css/'
+    'css': './dist/css/',
+    'assets': './dist/assets/'
 };
 
 // Defining base pathes
@@ -158,7 +159,7 @@ gulp.task('image-min', function () {
             progressive: true,
             use: [pngquant({quality: '65-80', speed: 1})]
         }))
-        .pipe(gulp.dest(release.root));
+        .pipe(gulp.dest(release.assets));
 });
 
 // jsを圧縮
@@ -166,7 +167,7 @@ gulp.task('uglify', function () {
     console.log('--------- uglify task ----------');
     return gulp.src(develop.assets + '**/*.js')
         .pipe(uglify({preserveComments: 'some'}))
-        .pipe(gulp.dest(release.root));
+        .pipe(gulp.dest(release.assets));
 });
 
 //開発環境のコンパイル
