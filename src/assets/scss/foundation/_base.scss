@@ -4,7 +4,7 @@ body, html {
   @extend .ex-font-family;
   @include cnt-font-size($font-nml,16);
   color: $color-text;
-  //height:100%;
+  min-height:100vh;
 }
 
 
@@ -59,10 +59,13 @@ a {
   &:hover{
     color: $color-link;
     text-decoration: none;
+      transition: all .5s;
+      color:darken($color-link,30%);
   }
   &:visited {
     color: $color-link;
   }
+	
 }
 
 //フルードイメージにします。

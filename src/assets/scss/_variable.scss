@@ -5,7 +5,8 @@
 $color-bg:#FFF !default;;//背景色
 $color-text: #3F3F3F !default;;//基本文字色
 $color-link: #03a9f4 !default;;//基本リンク色
-
+$color-accent: #fdd835 !default;//基本アクセント色
+$color-border:#cfd8dc!default;//基本線色
 
 
 // --------------------------------------------------
@@ -43,11 +44,12 @@ $ease-out-quint:                  cubic-bezier(.23,1,.32,1);
 $container:960px;//Containerサイズ
 
 //breakpointサイズ
+//breakpointが１津の場合は’brk’を使用しています。
 $breakpoints: (
-  'brk': 'screen and (max-width: 768px)',
+  'brk': 'screen and (max-width: 640px)',
   'sp': 'screen and (max-width: 400px)',
   'tb': 'screen and (max-width: 768px)',
-  'pc': 'screen and (min-width: 769px)',
+  'pc': 'screen and (min-width: 641px)',
 ) !default;
 
 

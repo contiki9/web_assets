@@ -49,7 +49,8 @@ var develop = {
 //コンパイル先
 var release = {
     'root': './dist/',
-    'css': './dist/css/'
+    'css': './dist/css/',
+    'assets': './dist/assets/'
 };
 
 // Defining base pathes
@@ -158,7 +159,7 @@ gulp.task('image-min', function () {
             progressive: true,
             use: [pngquant({quality: '65-80', speed: 1})]
         }))
-        .pipe(gulp.dest(release.root));
+        .pipe(gulp.dest(release.assets));
 });
 
 // jsを圧縮
@@ -166,7 +167,7 @@ gulp.task('uglify', function () {
     console.log('--------- uglify task ----------');
     return gulp.src(develop.assets + '**/*.js')
         .pipe(uglify({preserveComments: 'some'}))
-        .pipe(gulp.dest(release.root));
+        .pipe(gulp.dest(release.assets));
 });
 
 //開発環境のコンパイル
@@ -182,13 +183,25 @@ gulp.task('copy', function () {
             '!' + develop.assets + '**/scss/**',
             '!' + develop.assets + '**/scss/',
             develop.assets + '**/*.html',
-            develop.assets + '**/*.css',
-            develop.assets + '**/js/*.js',
-            develop.assets + '**/fonts/*.{eot,oft,ttf,woff,woff2}',
-            develop.assets + '**/images/*.{png,jpg,gif,svg}'],
+            develop.assets + '**/*.css'
+        ],
+            //develop.assets + '**/js/*.js',
+            //develop.assets + '**/fonts/*.{eot,oft,ttf,woff,woff2}',
+            //develop.assets + '**/images/*.{png,jpg,gif,svg}',
         {base: develop.root}
     )
         .pipe(gulp.dest(release.root));
+
+    //assets用
+    gulp.src(
+        [develop.assets + '**',
+            '!' + develop.assets + '**/scss/**',
+            '!' + develop.assets + '**/scss/'
+        ],
+        {base: develop.root}
+    )
+        .pipe(gulp.dest(release.root));
+
 });
 
 
@@ -332,6 +345,15 @@ gulp.task('output', function (callback) {
         ['pug', 'sass', 'image-min', 'uglify'],
         'check-html',
         'bs-reload',
+        callback
+    );
+});
+
+//herokuへのコンパイル
+gulp.task('heroku', function(callback) {
+    return runSequence(
+        'copy',
+        ['pug', 'sass', 'image-min', 'uglify'],
         callback
     );
 });
