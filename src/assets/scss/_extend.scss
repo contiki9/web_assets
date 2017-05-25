@@ -39,7 +39,7 @@
   transition: 0.5s;
 }
 
-@include media (max-width $brk){
+@include mq(){
   .ex-sp-hidden{
     display: none;
   }
@@ -48,11 +48,11 @@
   }
 }
 
-@include media ($brk){
-  .ex-pc-hidden{
+@include mq(pc) {
+  .ex-pc-hidden {
     display: none;
   }
-  .ex-pc-visible{
+  .ex-pc-visible {
     display: block;
   }
 }

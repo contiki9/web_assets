@@ -5,10 +5,10 @@ include /_include/_mixin
 append variables
     //- Required
     - var pageTitle= "";
-    - var pageDescription= site.description;
+    - var pageDescription= site.description.home;
     - var pageKeywords= site.keywords;
     //- Optional
-    - var pageOgpTitle= "";
+    - var pageOgpTitle= "site.name";
     - var pageOgpImage= site.ogpImage
     - var pageLang= "ja";
     - var pageOgpType= "website";
@@ -36,6 +36,7 @@ block body
             include /_include/test/_html_tag
             include /_include/test/_wordpress
         +footer()
+
 
 
 

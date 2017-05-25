@@ -2,5 +2,11 @@
 @import "base";
 
 body{
-
+ a {
+    color: $color-link;
+    &:hover{
+      transition: all .5s;
+      color:darken($color-link,30%);
+    }
+  }
 }
