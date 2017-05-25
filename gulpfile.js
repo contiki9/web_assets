@@ -159,7 +159,7 @@ gulp.task('image-min', function () {
             progressive: true,
             use: [pngquant({quality: '65-80', speed: 1})]
         }))
-        .pipe(gulp.dest(release.assets));
+        .pipe(gulp.dest(release.assets+'images/'));
 });
 
 // jsを圧縮
@@ -372,6 +372,8 @@ gulp.task('default', ['output'], function () {
 gulp.task('sync', ['browser-sync'], function () {
     gulp.watch(develop.root + '**/*.pug', ['re-pug']);
     gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass']);
+    gulp.watch(develop.assets + 'images/**/*', ['image-min']);
+    gulp.watch(develop.assets + 'js/**/*', ['uglify']);
     gulp.watch('./**/*.html', ['bs-reload']);
     gulp.watch('./**/*.php', ['bs-reload']);
 });
